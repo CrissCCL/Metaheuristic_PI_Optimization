@@ -26,7 +26,29 @@ The study evaluates multiple **metaheuristic and evolutionary algorithms**, comp
 
 The work follows an **industrial-style control engineering approach**, prioritizing robustness and practicality over purely theoretical optimality.
 
----
+
+## 📂 Contents
+
+- **/exhaustive_search/**  
+  Exhaustive grid search implementation used as reference optimum.
+
+- **/pso/**  
+  Particle Swarm Optimization (PSO) implementation and execution scripts.
+
+- **/ga/**  
+  Genetic Algorithm (GA) implementation and execution scripts.
+
+- **/firefly/**  
+  Firefly Algorithm implementation and execution scripts.
+
+- **/abc/**  
+  Artificial Bee Colony (ABC) implementation and execution scripts.
+
+- **/results/**  
+  Result comparison scripts and stored fitness evolution data (`.mat` files).
+
+
+
 
 ## 🧪 System Description
 
@@ -109,9 +131,7 @@ Each algorithm is evaluated using the same objective function, constraints, and 
 
 ---
 
-## 🔄 Algorithm Flow Diagrams
-
-<h2>🔄 Optimization Algorithm Flow Diagrams</h2>
+## 🔄 Optimization Algorithm Flow Diagrams
 
 <p align="center">
   The following diagrams summarize the internal logic and iteration flow of each

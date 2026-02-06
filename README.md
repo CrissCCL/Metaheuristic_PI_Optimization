@@ -119,6 +119,11 @@ Each runner:
 
 ## 📈 Results & Analysis
 Fitness Evolution Comparison
+> **Important note (Optimality vs. Best Fitness):**  
+> In this study, the **Exhaustive Search** is used as the **reference optimum** (within the evaluated grid/bounds).  
+> For the metaheuristics (PSO/GA/Firefly/ABC/Bat), the reported curve corresponds to the **best-so-far fitness found during the search**, which **does not necessarily imply global optimality**.  
+> Therefore, convergence toward the exhaustive-search optimum is evaluated by **how close the algorithm gets to the reference optimum**, and how efficiently it reaches that region of the search space.
+
 
 📌 Figure placeholder:
 plots/fig_fitness_comparison.png

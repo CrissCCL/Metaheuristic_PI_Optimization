@@ -29,22 +29,22 @@ The work follows an **industrial-style control engineering approach**, prioritiz
 
 ## 📂 Contents
 
-- **/exhaustive_search/**  
+- **exhaustive_search**  
   Exhaustive grid search implementation used as reference optimum.
 
-- **/pso/**  
+- **pso**  
   Particle Swarm Optimization (PSO) implementation and execution scripts.
 
-- **/ga/**  
+- **ga**  
   Genetic Algorithm (GA) implementation and execution scripts.
 
-- **/firefly/**  
+- **firefly**  
   Firefly Algorithm implementation and execution scripts.
 
-- **/abc/**  
+- **abc**  
   Artificial Bee Colony (ABC) implementation and execution scripts.
 
-- **/results/**  
+- **results**  
   Result comparison scripts and stored fitness evolution data (`.mat` files).
 
 

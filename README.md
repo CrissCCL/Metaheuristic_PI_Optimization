@@ -7,8 +7,6 @@
 ![Simulation](https://img.shields.io/badge/Simulation-MATLAB-yellow)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
----
-
 ## 📖 Overview
 
 This repository presents a **comparative study of metaheuristic optimization algorithms**
@@ -37,8 +35,6 @@ The work follows an **industrial-style control engineering approach**, prioritiz
 - **results:**    Result comparison scripts and stored fitness evolution data (`.mat` files); *Main script:* `plot_comparison.m`
 
 
-
-
 ## 🧪 System Description
 
 - **Process:** Single-tank level control (laboratory-scale plant)
@@ -50,7 +46,6 @@ The work follows an **industrial-style control engineering approach**, prioritiz
 
 The nonlinear model is linearized around a chosen operating point to enable classical PI control design, while the optimization algorithms handle the non-idealities and constraints.
 
----
 
 ## 🎛️ Control Architecture
 
@@ -103,7 +98,6 @@ The optimization is subject to realistic operational constraints:
 
 Only solutions satisfying all constraints are considered valid.
 
----
 
 ## 🧠 Optimization Algorithms Evaluated
 
@@ -118,7 +112,6 @@ The following techniques are implemented and compared:
 
 Each algorithm is evaluated using the same objective function, constraints, and simulation conditions to ensure a fair comparison.
 
----
 
 ## 🔄 Optimization Algorithm Flow Diagrams
 
@@ -263,8 +256,6 @@ The methodology and results remain directly applicable to industrial control and
   without proper validation, safety analysis, and tuning.
 - The author assumes no responsibility for the use of this material
   in safety-critical or production environments.
-
-
 
 
 

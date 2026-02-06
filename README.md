@@ -34,6 +34,7 @@ The work follows an **industrial-style control engineering approach**, prioritiz
 - **ABC:**    Artificial Bee Colony (ABC) implementation and execution scripts;  *Main script:* `run_abc.m`
 - **results:**    Result comparison scripts and stored fitness evolution data (`.mat` files); *Main script:* `plot_comparison.m`
 
+> Each folder contains a self-contained implementation of the corresponding optimization algorithm.
 
 ## 🧪 System Description
 

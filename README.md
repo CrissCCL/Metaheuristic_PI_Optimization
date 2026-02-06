@@ -124,10 +124,9 @@ Fitness Evolution Comparison
 > For the metaheuristics (PSO/GA/Firefly/ABC/Bat), the reported curve corresponds to the **best-so-far fitness found during the search**, which **does not necessarily imply global optimality**.  
 > Therefore, convergence toward the exhaustive-search optimum is evaluated by **how close the algorithm gets to the reference optimum**, and how efficiently it reaches that region of the search space.
 
-
-📌 Figure placeholder:
-plots/fig_fitness_comparison.png
-
+<p align="center">
+  <img alt="result" src="https://github.com/user-attachments/assets/f12908db-7383-4404-9525-13751e2158fc" width="700">
+</p>
 
 ## 📊 Comparative Summary
 The comparison shows the evolution of the best fitness value across iterations for all algorithms.

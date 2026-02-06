@@ -159,11 +159,12 @@ Each runner:
 - stores convergence history as global_fitness in /results/*.mat
 
 ## 📈 Results & Analysis
-Fitness Evolution Comparison
+### Fitness Evolution Comparison
 > **Important note (Optimality vs. Best Fitness):**  
-> In this study, the **Exhaustive Search** is used as the **reference optimum** (within the evaluated grid/bounds).  
-> For the metaheuristics (PSO/GA/Firefly/ABC/Bat), the reported curve corresponds to the **best-so-far fitness found during the search**, which **does not necessarily imply global optimality**.  
-> Therefore, convergence toward the exhaustive-search optimum is evaluated by **how close the algorithm gets to the reference optimum**, and how efficiently it reaches that region of the search space.
+> In this study, the **Exhaustive Search** is used as the **reference optimum** within the evaluated parameter grid/bounds.  
+> For the metaheuristic methods (PSO, GA, Firefly, ABC, Bat), the reported curves correspond to the **best-so-far fitness found during the search**,which **does not necessarily imply global optimality**.  
+> Convergence is therefore evaluated based on **proximity to the reference optimum** and **how efficiently each algorithm reaches that region of the search space**.
+
 
 <p align="center">
   <img alt="result" src="https://github.com/user-attachments/assets/f12908db-7383-4404-9525-13751e2158fc" width="700">
@@ -250,13 +251,14 @@ The methodology and results remain directly applicable to industrial control and
 
 ## ⚠️ Disclaimer
 
-- This project is provided **for educational and research purposes only**.
-- The models, parameters, and results presented here are based on
-  simplified assumptions and laboratory-scale experiments.
-- Results should **not be directly extrapolated to industrial systems**
-  without proper validation, safety analysis, and tuning.
-- The author assumes no responsibility for the use of this material
-  in safety-critical or production environments.
+This repository is intended for **educational and research purposes only**.
+
+The control strategies, optimization algorithms, and parameter values presented
+here are **not directly validated for industrial deployment**.
+They must be independently verified, tested, and adapted
+before being applied to real industrial systems.
+
+The author assumes no responsibility for misuse of the provided material.
 
 
 

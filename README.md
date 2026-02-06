@@ -187,10 +187,10 @@ The comparison shows the evolution of the best fitness value across iterations f
 
 | Technique                  | Fitness | Kp  | Ti   | Execution Time (s) |
 |---------------------------|---------|-----|------|--------------------|
-| Exhaustive Search         | 0.2286  | 0.6 | 15.0 | 293                |
-| PSO                       | 0.2286  | 0.6 | 14.9 | 58                 |
-| Firefly                   | 0.1732  | 0.4 | 10.5 | 90                 |
-| Genetic Algorithm (GA)    | 0.2286  | 0.6 | 14.9 | 119                |
+| Exhaustive Search         | 0.2291  | 0.6 | 15.0 | 82               |
+| PSO                       | 0.2292  | 0.6 | 14.9 | 107                |
+| Firefly                   | 0.2513  | 0.69 | 19.78 | 108                |
+| Genetic Algorithm (GA)    | 0.2291  | 0.6 | 15.0 | 33                |
 | Artificial Bee Colony     | 0.2286  | 0.6 | 14.9 | 1385               |
 
 

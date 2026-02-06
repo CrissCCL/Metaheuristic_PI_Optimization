@@ -54,8 +54,24 @@ Derivative action is intentionally excluded due to process characteristics and a
 
 ### Control Loop Diagram
 
-📌 *Figure placeholder:*  
-`docs/fig_control_loop.png`
+<p align="center">
+  <img alt="result" src="https://github.com/user-attachments/assets/63206eb0-f6d7-4aab-8958-d43ca0dbf8d9" width="700">
+</p>
+
+<table align="center">
+  <tr>
+    <td align="center">
+      <img alt="Loop diagram"
+           src="https://github.com/user-attachments/assets/63206eb0-f6d7-4aab-8958-d43ca0dbf8d9"
+           width="450">
+    </td>
+    <td align="center">
+      <img alt="Tank system"
+           src="https://github.com/user-attachments/assets/c4c90479-8129-4b10-9018-813e9dce06b0"
+           width="600">
+    </td>
+  </tr>
+</table>
 
 ## 🎯 Optimization Problem Formulation
 
@@ -162,7 +178,22 @@ The comparison shows the evolution of the best fitness value across iterations f
 | Genetic Algorithm | Near-optimal | Medium           | Stable but slower            |
 | Firefly Algorithm | Suboptimal   | Medium           | Sensitive to parameters      |
 | ABC               | Near-optimal | Very High        | High computational cost      |
-| Bat Algorithm     | Near-optimal | High             | Strong stochastic dependence |
+
+
+## 📊 Comparative Performance Summary (Preliminary Results)
+
+> **Note:** The results shown below correspond to an early implementation of the algorithms.  
+> All simulations and performance metrics are currently being updated and refactored.
+
+| Technique                  | Fitness | Kp  | Ti   | Execution Time (s) |
+|---------------------------|---------|-----|------|--------------------|
+| Exhaustive Search         | 0.2286  | 0.6 | 15.0 | 293                |
+| PSO                       | 0.2286  | 0.6 | 14.9 | 58                 |
+| Firefly                   | 0.1732  | 0.4 | 10.5 | 90                 |
+| Genetic Algorithm (GA)    | 0.2286  | 0.6 | 14.9 | 119                |
+| Artificial Bee Colony     | 0.2286  | 0.6 | 14.9 | 1385               |
+
+
 
 ## 🛠️ Tools & Environment
 

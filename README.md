@@ -97,16 +97,39 @@ Each algorithm is evaluated using the same objective function, constraints, and 
 
 ## 🔄 Algorithm Flow Diagrams
 
-📌 *Flow diagram placeholders (one per algorithm):*
+<h2>🔄 Optimization Algorithm Flow Diagrams</h2>
 
-- `docs/flow_exhaustive.png`
-- `docs/flow_pso.png`
-- `docs/flow_ga.png`
-- `docs/flow_firefly.png`
-- `docs/flow_abc.png`
-- `docs/flow_bat.png`
+<p align="center">
+  The following diagrams summarize the internal logic and iteration flow of each
+  metaheuristic optimization algorithm implemented in this study.
+</p>
 
-These diagrams illustrate the internal optimization logic and iteration flow for each technique.
+
+<table align="center">
+  <tr>
+    <td align="center">
+      <b>Particle Swarm Optimization (PSO)</b><br><br>
+      <img src="https://github.com/user-attachments/assets/4c63abac-14c5-42d6-b7da-b5f46ba336ac" width="420">
+    </td>
+    <td align="center">
+      <b>Genetic Algorithm (GA)</b><br><br>
+      <img src="https://github.com/user-attachments/assets/f0e16f80-8848-48f3-b84b-67c970a4d454" width="420">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <b>Firefly Algorithm</b><br><br>
+      <img src="https://github.com/user-attachments/assets/91c768c4-918f-493c-80e9-f2c2282f68d0" width="420">
+    </td>
+    <td align="center">
+      <b>Artificial Bee Colony (ABC)</b><br><br>
+      <img src="docs/flows/flow_abc.png" width="420">
+    </td>
+  </tr>
+</table>
+
+> These diagrams are provided for clarity and documentation purposes.
+> They do not alter the numerical results but illustrate the algorithmic flow.
 
 ## 🚀 How to Run
 

@@ -168,28 +168,30 @@ Fitness Evolution Comparison
 
 ## 📊 Comparative Summary
 
-The comparison below summarizes the performance of each optimization technique based on
-the **best-so-far fitness achieved**, the **computational time**, and the observed convergence behavior.
+The table below provides a qualitative comparison of the evaluated optimization techniques
+based on **fitness level**, **computational cost**, and **convergence behavior**.
 The exhaustive search is used as a **reference solution** within the evaluated parameter grid.
 
-It is important to note that metaheuristic algorithms were executed with a **limited number of iterations (10)**,
-and therefore the reported solutions correspond to the **best solution found within that budget**, which may
-represent either a global or a local optimum.
+Metaheuristic algorithms were executed with a **limited number of iterations (10)**;
+therefore, the reported results correspond to the **best-so-far solution found within that budget**,
+which may represent either a global or a local optimum.
 
-| Algorithm              | Fitness Level        | Computation Time | Notes                                                             |
-|------------------------|----------------------|------------------|-------------------------------------------------------------------|
-| Exhaustive Search      | Reference optimum    | Medium           | Guarantees optimality within the grid; high evaluation cost       |
-| PSO                    | Near-reference       | Medium           | Reaches reference solution with stable convergence                |
-| Genetic Algorithm (GA) | Reference-equivalent | Low              | Fast convergence to reference solution in few generations         |
-| Firefly Algorithm      | Higher fitness value | Medium           | Converges to a different (local) optimum                          |
-| ABC                    | Reference-equivalent | Very High        | Achieves reference solution but with high computational cost      |
+| Algorithm              | Fitness Level        | Computation Time | Notes                                                        |
+|------------------------|----------------------|------------------|--------------------------------------------------------------|
+| Exhaustive Search      | Reference optimum    | Medium           | Guarantees optimality within the grid                        |
+| PSO                    | Near-reference       | Medium           | Stable convergence toward reference solution                 |
+| Genetic Algorithm (GA) | Reference-equivalent | Low              | Fast convergence in few generations                          |
+| Firefly Algorithm      | Higher fitness value | Medium           | Converges to a different (local) optimum                     |
+| ABC                    | Reference-equivalent | Very High        | Achieves reference solution with high computational cost     |
 
 > Fitness values are not directly comparable across different local optima when constraints
 > and objective scaling differ; convergence behavior and computational cost are therefore
 > equally relevant evaluation criteria.
 
 
-## 📊 Comparative Performance Summary 
+
+## 📊 Comparative Performance Summary (Quantitative Results)
+
 
 The table below summarizes the updated performance results obtained for each optimization technique.
 For the metaheuristic algorithms, **10 iterations** were used, as shown in the fitness evolution plots,
@@ -225,8 +227,6 @@ All simulations were executed on the following hardware:
 > found within the limited number of iterations.
 
 
-
-
 ## 🛠️ Tools & Environment
 
 - MATLAB
@@ -245,6 +245,28 @@ This project was originally developed as an academic control engineering study a
 
 The methodology and results remain directly applicable to industrial control and process optimization problems.
 
-##  📜 License
+## ⚠️ Disclaimer
+
+- This project is provided **for educational and research purposes only**.
+- The models, parameters, and results presented here are based on
+  simplified assumptions and laboratory-scale experiments.
+- Results should **not be directly extrapolated to industrial systems**
+  without proper validation, safety analysis, and tuning.
+- The author assumes no responsibility for the use of this material
+  in safety-critical or production environments.
+
+
+
+
+
+## 🤝 Support Projects
+
+Support my work on Patreon:  
+https://www.patreon.com/c/CrissCCL
+
+
+## 📜 License
+
 MIT License
+
 

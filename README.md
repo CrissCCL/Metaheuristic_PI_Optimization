@@ -109,21 +109,21 @@ Each algorithm is evaluated using the same objective function, constraints, and 
   <tr>
     <td align="center">
       <b>Particle Swarm Optimization (PSO)</b><br><br>
-      <img src="https://github.com/user-attachments/assets/4c63abac-14c5-42d6-b7da-b5f46ba336ac" width="420">
+      <img src="https://github.com/user-attachments/assets/4c63abac-14c5-42d6-b7da-b5f46ba336ac" width="320">
     </td>
     <td align="center">
       <b>Genetic Algorithm (GA)</b><br><br>
-      <img src="https://github.com/user-attachments/assets/f0e16f80-8848-48f3-b84b-67c970a4d454" width="420">
+      <img src="https://github.com/user-attachments/assets/f0e16f80-8848-48f3-b84b-67c970a4d454" width="320">
     </td>
   </tr>
   <tr>
     <td align="center">
       <b>Firefly Algorithm</b><br><br>
-      <img src="https://github.com/user-attachments/assets/91c768c4-918f-493c-80e9-f2c2282f68d0" width="420">
+      <img src="https://github.com/user-attachments/assets/91c768c4-918f-493c-80e9-f2c2282f68d0" width="320">
     </td>
     <td align="center">
       <b>Artificial Bee Colony (ABC)</b><br><br>
-      <img src="https://github.com/user-attachments/assets/c4cac0f8-5a6b-4831-b33b-e01cf4e54a14" width="420">
+      <img src="https://github.com/user-attachments/assets/c4cac0f8-5a6b-4831-b33b-e01cf4e54a14" width="300">
     </td>
   </tr>
 </table>

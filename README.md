@@ -189,7 +189,7 @@ The comparison shows the evolution of the best fitness value across iterations f
 | PSO                       | 0.2292  | 0.6 | 14.9 | 107                |
 | Firefly                   | 0.2513  | 0.69 | 19.78 | 108                |
 | Genetic Algorithm (GA)    | 0.2291  | 0.6 | 15.0 | 33                |
-| Artificial Bee Colony     | 0.2292  | 0.6 | 14.9 | 1385               |
+| Artificial Bee Colony     | 0.2291  | 0.6 | 15.2 | 363            |
 
 
 

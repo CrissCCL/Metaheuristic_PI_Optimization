@@ -123,7 +123,7 @@ Each algorithm is evaluated using the same objective function, constraints, and 
     </td>
     <td align="center">
       <b>Artificial Bee Colony (ABC)</b><br><br>
-      <img src="https://github.com/user-attachments/assets/c4cac0f8-5a6b-4831-b33b-e01cf4e54a14" width="300">
+      <img src="https://github.com/user-attachments/assets/c4cac0f8-5a6b-4831-b33b-e01cf4e54a14" width="200">
     </td>
   </tr>
 </table>

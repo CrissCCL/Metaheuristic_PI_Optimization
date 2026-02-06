@@ -123,10 +123,11 @@ Each algorithm is evaluated using the same objective function, constraints, and 
     </td>
     <td align="center">
       <b>Artificial Bee Colony (ABC)</b><br><br>
-      <img src="docs/flows/flow_abc.png" width="420">
+      <img src="https://github.com/user-attachments/assets/c4cac0f8-5a6b-4831-b33b-e01cf4e54a14" width="420">
     </td>
   </tr>
 </table>
+
 
 > These diagrams are provided for clarity and documentation purposes.
 > They do not alter the numerical results but illustrate the algorithmic flow.

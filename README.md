@@ -64,7 +64,7 @@ Derivative action is intentionally excluded due to process characteristics and a
     </td>
     <td align="center">
       <img alt="Tank system"
-           src="https://github.com/user-attachments/assets/c4c90479-8129-4b10-9018-813e9dce06b0"
+           src="https://github.com/user-attachments/assets/cb2c5ea4-0884-4866-a1bc-5da1a3cd7daa"
            width="600">
     </td>
   </tr>

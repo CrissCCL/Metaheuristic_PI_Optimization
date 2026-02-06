@@ -72,7 +72,7 @@ Derivative action is intentionally excluded due to process characteristics and a
     <td align="center">
       <img alt="Tank system"
            src="https://github.com/user-attachments/assets/cb2c5ea4-0884-4866-a1bc-5da1a3cd7daa"
-           width="200">
+           width="280">
     </td>
   </tr>
 </table>
@@ -140,7 +140,7 @@ Each algorithm is evaluated using the same objective function, constraints, and 
     </td>
     <td align="center">
       <b>Artificial Bee Colony (ABC)</b><br><br>
-      <img src="https://github.com/user-attachments/assets/c4cac0f8-5a6b-4831-b33b-e01cf4e54a14" width="220">
+      <img src="https://github.com/user-attachments/assets/c4cac0f8-5a6b-4831-b33b-e01cf4e54a14" width="240">
     </td>
   </tr>
 </table>

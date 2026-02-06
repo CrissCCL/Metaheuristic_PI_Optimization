@@ -54,9 +54,6 @@ Derivative action is intentionally excluded due to process characteristics and a
 
 ### Control Loop Diagram
 
-<p align="center">
-  <img alt="result" src="https://github.com/user-attachments/assets/63206eb0-f6d7-4aab-8958-d43ca0dbf8d9" width="700">
-</p>
 
 <table align="center">
   <tr>
@@ -72,6 +69,7 @@ Derivative action is intentionally excluded due to process characteristics and a
     </td>
   </tr>
 </table>
+
 
 ## 🎯 Optimization Problem Formulation
 
@@ -191,7 +189,7 @@ The comparison shows the evolution of the best fitness value across iterations f
 | PSO                       | 0.2292  | 0.6 | 14.9 | 107                |
 | Firefly                   | 0.2513  | 0.69 | 19.78 | 108                |
 | Genetic Algorithm (GA)    | 0.2291  | 0.6 | 15.0 | 33                |
-| Artificial Bee Colony     | 0.2286  | 0.6 | 14.9 | 1385               |
+| Artificial Bee Colony     | 0.2292  | 0.6 | 14.9 | 1385               |
 
 
 

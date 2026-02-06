@@ -65,7 +65,7 @@ Derivative action is intentionally excluded due to process characteristics and a
     <td align="center">
       <img alt="Tank system"
            src="https://github.com/user-attachments/assets/cb2c5ea4-0884-4866-a1bc-5da1a3cd7daa"
-           width="300">
+           width="200">
     </td>
   </tr>
 </table>
@@ -167,29 +167,63 @@ Fitness Evolution Comparison
 </p>
 
 ## 📊 Comparative Summary
-The comparison shows the evolution of the best fitness value across iterations for all algorithms.
 
-| Algorithm         | Fitness      | Computation Time | Notes                        |
-| ----------------- | ------------ | ---------------- | ---------------------------- |
-| Exhaustive Search | Optimal      | High             | Baseline reference           |
-| PSO               | Optimal      | Low              | Fast and robust convergence  |
-| Genetic Algorithm | Near-optimal | Medium           | Stable but slower            |
-| Firefly Algorithm | Suboptimal   | Medium           | Sensitive to parameters      |
-| ABC               | Near-optimal | Very High        | High computational cost      |
+The comparison below summarizes the performance of each optimization technique based on
+the **best-so-far fitness achieved**, the **computational time**, and the observed convergence behavior.
+The exhaustive search is used as a **reference solution** within the evaluated parameter grid.
+
+It is important to note that metaheuristic algorithms were executed with a **limited number of iterations (10)**,
+and therefore the reported solutions correspond to the **best solution found within that budget**, which may
+represent either a global or a local optimum.
+
+| Algorithm              | Fitness Level        | Computation Time | Notes                                                             |
+|------------------------|----------------------|------------------|-------------------------------------------------------------------|
+| Exhaustive Search      | Reference optimum    | Medium           | Guarantees optimality within the grid; high evaluation cost       |
+| PSO                    | Near-reference       | Medium           | Reaches reference solution with stable convergence                |
+| Genetic Algorithm (GA) | Reference-equivalent | Low              | Fast convergence to reference solution in few generations         |
+| Firefly Algorithm      | Higher fitness value | Medium           | Converges to a different (local) optimum                          |
+| ABC                    | Reference-equivalent | Very High        | Achieves reference solution but with high computational cost      |
+
+> Fitness values are not directly comparable across different local optima when constraints
+> and objective scaling differ; convergence behavior and computational cost are therefore
+> equally relevant evaluation criteria.
 
 
-## 📊 Comparative Performance Summary (Preliminary Results)
+## 📊 Comparative Performance Summary 
 
-> **Note:** The results shown below correspond to an early implementation of the algorithms.  
-> All simulations and performance metrics are currently being updated and refactored.
+The table below summarizes the updated performance results obtained for each optimization technique.
+For the metaheuristic algorithms, **10 iterations** were used, as shown in the fitness evolution plots,
+which allow identifying **which method reaches the global or local optimum first**.
 
-| Technique                  | Fitness | Kp  | Ti   | Execution Time (s) |
-|---------------------------|---------|-----|------|--------------------|
-| Exhaustive Search         | 0.2291  | 0.6 | 15.0 | 82               |
-| PSO                       | 0.2292  | 0.6 | 14.9 | 107                |
+Metaheuristic optimization methods are employed to **accelerate the search for optimal controller parameters**
+by avoiding the exhaustive evaluation of all possible parameter combinations, as performed by exhaustive search.
+While exhaustive search guarantees finding the reference optimum within the evaluated grid,
+it can become **computationally expensive** for large search spaces.
+
+In contrast, metaheuristic methods provide a **computationally efficient alternative**,
+trading guaranteed optimality for faster convergence toward near-optimal or optimal solutions.
+
+### Computing Platform
+All simulations were executed on the following hardware:
+
+- **Processor:** AMD Ryzen 7 5800X (8-Core, 3.80 GHz)  
+- **Installed RAM:** 32.0 GB  
+
+### Performance Comparison
+
+| Technique                  | Fitness | Kp   | Ti    | Execution Time (s) |
+|---------------------------|---------|------|-------|--------------------|
+| Exhaustive Search         | 0.2291  | 0.60 | 15.00 | 82                 |
+| PSO                       | 0.2292  | 0.60 | 14.90 | 107                |
 | Firefly                   | 0.2513  | 0.69 | 19.78 | 108                |
-| Genetic Algorithm (GA)    | 0.2291  | 0.6 | 15.0 | 33                |
-| Artificial Bee Colony     | 0.2291  | 0.6 | 15.2 | 363            |
+| Genetic Algorithm (GA)    | 0.2291  | 0.60 | 15.00 | 33                 |
+| Artificial Bee Colony     | 0.2291  | 0.60 | 15.20 | 363                |
+
+> **Note:**  
+> The exhaustive search result is used as a **reference optimum within the evaluated parameter grid**.
+> For metaheuristic methods, the reported fitness corresponds to the **best-so-far solution**
+> found within the limited number of iterations.
+
 
 
 
@@ -212,5 +246,5 @@ This project was originally developed as an academic control engineering study a
 The methodology and results remain directly applicable to industrial control and process optimization problems.
 
 ##  📜 License
-MIT License.
+MIT License
 

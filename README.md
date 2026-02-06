@@ -19,10 +19,10 @@ minimizing control error while ensuring feasible actuator behavior.
 
 The study evaluates multiple **metaheuristic and evolutionary algorithms**, comparing:
 
-- Convergence behavior
-- Fitness evolution
-- Computational cost
-- Closed-loop simulation performance
+- Convergence behavior  
+- Fitness evolution  
+- Computational cost  
+- Closed-loop simulation performance  
 
 The work follows an **industrial-style control engineering approach**, prioritizing robustness and practicality over purely theoretical optimality.
 
@@ -52,7 +52,10 @@ The nonlinear model is linearized around a chosen operating point to enable clas
 
 Derivative action is intentionally excluded due to process characteristics and actuator limitations.
 
----
+### Control Loop Diagram
+
+📌 *Figure placeholder:*  
+`docs/fig_control_loop.png`
 
 ## 🎯 Optimization Problem Formulation
 
@@ -92,70 +95,65 @@ Each algorithm is evaluated using the same objective function, constraints, and 
 
 ---
 
+## 🔄 Algorithm Flow Diagrams
+
+📌 *Flow diagram placeholders (one per algorithm):*
+
+- `docs/flow_exhaustive.png`
+- `docs/flow_pso.png`
+- `docs/flow_ga.png`
+- `docs/flow_firefly.png`
+- `docs/flow_abc.png`
+- `docs/flow_bat.png`
+
+These diagrams illustrate the internal optimization logic and iteration flow for each technique.
+
+## 🚀 How to Run
+
+Each optimization algorithm is executed independently.
+
+Each runner:
+- executes the selected optimizer
+- generates method-specific plots
+- stores convergence history as global_fitness in /results/*.mat
+
 ## 📈 Results & Analysis
+Fitness Evolution Comparison
 
-The repository includes:
+📌 Figure placeholder:
+plots/fig_fitness_comparison.png
 
-- **Fitness evolution plots** for each algorithm
-- **Convergence behavior** across iterations
-- **Parameter trajectories** in the search space
-- **Closed-loop time-domain simulations**
-- **Computational time comparison**
-
-### Key Findings
-
-- **PSO consistently reaches the global optimum** found by exhaustive search,  
-  with **significantly reduced computational time**.
-- Genetic Algorithms achieve near-optimal solutions but require more evaluations.
-- Firefly, ABC, and Bat algorithms show slower convergence and higher sensitivity to parameter tuning.
-- From a cost–benefit perspective, **PSO provides the best balance between accuracy, robustness, and execution time**.
-
----
 
 ## 📊 Comparative Summary
+The comparison shows the evolution of the best fitness value across iterations for all algorithms.
 
-| Algorithm           | Fitness | Computation Time (s) | Notes |
-|--------------------|---------|----------------------|------|
-| Exhaustive Search  | Optimal | High                 | Baseline reference |
-| PSO                | Optimal | Low                  | Fast and robust convergence |
-| Genetic Algorithm  | Near-optimal | Medium           | Stable but slower |
-| Firefly Algorithm  | Suboptimal | Medium             | Sensitive to parameters |
-| ABC                | Near-optimal | Very High         | High computational cost |
-| Bat Algorithm      | Near-optimal | High              | Strong stochastic dependence |
-
----
+| Algorithm         | Fitness      | Computation Time | Notes                        |
+| ----------------- | ------------ | ---------------- | ---------------------------- |
+| Exhaustive Search | Optimal      | High             | Baseline reference           |
+| PSO               | Optimal      | Low              | Fast and robust convergence  |
+| Genetic Algorithm | Near-optimal | Medium           | Stable but slower            |
+| Firefly Algorithm | Suboptimal   | Medium           | Sensitive to parameters      |
+| ABC               | Near-optimal | Very High        | High computational cost      |
+| Bat Algorithm     | Near-optimal | High             | Strong stochastic dependence |
 
 ## 🛠️ Tools & Environment
 
-- **MATLAB**
+- MATLAB
 - Control System Toolbox
 - Custom simulation and optimization scripts
 
 All simulations are executed under identical conditions to ensure reproducibility and consistency.
 
----
-
 ## 🎓 Context & Motivation
 
-This project was originally developed as an academic control engineering study and has been **refactored and documented** to serve as:
+This project was originally developed as an academic control engineering study and has been refactored and documented to serve as:
 
-- A reference example of **metaheuristic optimization applied to control**
-- A practical comparison of optimization strategies for **nonlinear processes**
+- A reference example of metaheuristic optimization applied to control
+- A practical comparison of optimization strategies for nonlinear processes
 - A reusable framework for controller tuning under constraints
 
 The methodology and results remain directly applicable to industrial control and process optimization problems.
 
----
+##  📜 License
+MIT License.
 
-## 📄 License
-
-This project is released under the **MIT License**.  
-It is intended for **educational and research purposes**.
-
----
-
-## ✍️ Author
-
-**Cristian Andrés Castro Lagos**  
-Control & Instrumentation Engineering  
-GitHub: https://github.com/CrissCCL

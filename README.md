@@ -86,7 +86,7 @@ The PI controller tuning problem is formulated as a constrained optimization tas
 using the **Integral of Squared Error (ISE)** as performance index:
 
 $$
-J = \int_0^{T} e^2(t)\,dt
+J = \int_0^{T} e^2(t)dt
 $$
 
 The ISE criterion is selected to penalize transient errors more strongly,

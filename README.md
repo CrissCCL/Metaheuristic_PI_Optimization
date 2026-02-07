@@ -61,21 +61,26 @@ Derivative action is intentionally excluded due to process characteristics and a
 
 ### Control Loop Diagram
 
+The following diagrams illustrate the closed-loop control structure
+and the physical tank system considered in this study.
 
 <table align="center">
   <tr>
     <td align="center">
-      <img alt="Loop diagram"
+      <img alt="Closed-loop PI control architecture"
            src="https://github.com/user-attachments/assets/63206eb0-f6d7-4aab-8958-d43ca0dbf8d9"
-           width="450">
+           width="450"><br>
+      <sub><b>Figure 1.</b> Closed-loop PI control architecture.</sub>
     </td>
     <td align="center">
-      <img alt="Tank system"
+      <img alt="Laboratory-scale tank system"
            src="https://github.com/user-attachments/assets/cb2c5ea4-0884-4866-a1bc-5da1a3cd7daa"
-           width="200">
+           width="200"><br>
+      <sub><b>Figure 2.</b> Laboratory-scale single-tank system.</sub>
     </td>
   </tr>
 </table>
+
 
 
 ## 🎯 Optimization Problem Formulation

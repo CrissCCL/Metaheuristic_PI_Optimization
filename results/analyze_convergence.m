@@ -3,22 +3,18 @@
 % Finds:
 %  (1) iteration where each method reaches its own max best-so-far fitness
 %  (2) iteration where it first reaches the exhaustive reference fitness
+%  (3) estimated time (s) to reach the reference optimum
 % Also computes a weighted score with execution time.
 % ---------------------------------------------------------
 
 clear; close all; clc;
 
 %% -------------------- User settings ----------------------
-% Folder where .mat files live (use '.' if same folder)
-results_dir = '.';   % e.g., '../results'
+results_dir = '.';          % folder with .mat files
+tol_ref     = 1e-4;         % tolerance to detect reference optimum
+alpha_time  = 0.01;         % time penalty weight (score)
+Niter       = 100;          % fixed iteration budget
 
-% Reference target tolerance (for reaching exhaustive optimum)
-tol_ref = 1e-4;
-
-% Time-weighted score (bigger alpha -> stronger penalty for slow methods)
-alpha_time = 0.01;   % <-- tune this
-
-% Provide execution time in seconds (from your updated table)
 exec_time = struct( ...
   'exhaustive', 82, ...
   'pso',        107, ...
@@ -28,7 +24,8 @@ exec_time = struct( ...
 );
 
 %% -------------------- Load reference ----------------------
-Sref = load(fullfile(results_dir,'gf_exhaustive.mat'), 'bestfitness_exh', 'gf_exhaustive');
+Sref  = load(fullfile(results_dir,'gf_exhaustive.mat'), ...
+             'bestfitness_exh', 'gf_exhaustive');
 f_ref = Sref.bestfitness_exh;
 
 %% -------------------- Load methods ------------------------
@@ -40,51 +37,56 @@ methods = { ...
 };
 
 %% -------------------- Analyze -----------------------------
-rows = [];
+rows = {};
 
 for m = 1:numel(methods)
     M = methods{m};
 
     data = load(fullfile(results_dir, M.file), M.var);
-    gf = data.(M.var);         % expected columns: [Kp Ti k bestFitness]
+    gf   = data.(M.var);      % columns: [Kp Ti k bestFitness]
 
     k = gf(:,3);
     f = gf(:,4);
 
-    % (A) Max of its own best-so-far curve
+    % (A) Max best-so-far fitness
     f_max = max(f);
     idx_max_first = find(f == f_max, 1, 'first');
     k_at_max = k(idx_max_first);
 
-    % (B) First iteration where it reaches the reference (exhaustive) fitness
+    % (B) First iteration reaching reference region
     idx_ref = find(f >= (f_ref - tol_ref), 1, 'first');
     if isempty(idx_ref)
-        k_to_ref = NaN;  % never reached reference within run
+        k_to_ref = NaN;
+        time_to_ref = NaN;
     else
         k_to_ref = k(idx_ref);
+        time_to_ref = (k_to_ref / Niter) * exec_time.(M.key);
     end
 
-    % Time
+    % (C) Total execution time
     tsec = exec_time.(M.key);
 
-    % (C) Weighted score (example):
-    % - reward higher max fitness
-    % - penalize long runtimes
+    % (D) Time-weighted score
     score = f_max / (1 + alpha_time * tsec);
 
-    rows = [rows; {M.name, f_max, k_at_max, k_to_ref, tsec, score}]; %#ok<AGROW>
+    rows(end+1,:) = { ...
+        M.name, f_max, k_at_max, k_to_ref, time_to_ref, tsec, score ...
+    }; %#ok<SAGROW>
 end
 
 %% -------------------- Report as table ---------------------
 T = cell2table(rows, 'VariableNames', ...
-    {'Technique','MaxBestFitness','IterAtMax','IterToRef','ExecTime_s','Score'});
+    {'Technique','MaxBestFitness','IterAtMax','IterToRef', ...
+     'TimeToRef_s','ExecTime_s','Score'});
 
-% Sort by score (descending)
 T = sortrows(T, 'Score', 'descend');
 
 fprintf('\nReference fitness (exhaustive): %.6f\n', f_ref);
-fprintf('tol_ref = %.1e | alpha_time = %.4f\n\n', tol_ref, alpha_time);
+fprintf('tol_ref = %.1e | alpha_time = %.4f | Niter = %d\n\n', ...
+        tol_ref, alpha_time, Niter);
+
 disp(T);
 
-%% -------------------- Optional: save summary --------------
-save(fullfile(results_dir,'convergence_summary.mat'), 'T', 'f_ref', 'tol_ref', 'alpha_time');
+%% -------------------- Save summary ------------------------
+save(fullfile(results_dir,'convergence_summary.mat'), ...
+     'T', 'f_ref', 'tol_ref', 'alpha_time', 'Niter');

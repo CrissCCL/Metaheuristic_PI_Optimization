@@ -190,6 +190,23 @@ Each runner:
   <img alt="result" src="https://github.com/user-attachments/assets/f12908db-7383-4404-9525-13751e2158fc" width="700">
 </p>
 
+> **Relative optimality gap:**  
+> The vertical axis represents the relative gap with respect to the exhaustive-search
+> reference optimum, defined as
+>
+> $$
+> \text{Gap} = \frac{f^\* - f}{f^\*}
+> $$
+>
+> where $$f^\*$$ is the best fitness obtained by exhaustive search and $$f$$ is the
+> best-so-far fitness achieved by the metaheuristic at a given iteration.
+> Lower values indicate closer proximity to the reference optimum.
+
+> **Interpretation:**  
+> A gap equal to zero indicates convergence to the reference optimum, while nonzero
+> values reflect suboptimal or locally optimal solutions under the given iteration budget.
+
+
 All metaheuristic algorithms were executed using a **fixed iteration budget of 100 iterations** under identical simulation conditions.  
 The exhaustive search result serves exclusively as a **benchmark reference**, not as a competitor in convergence speed.
 

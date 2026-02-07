@@ -170,6 +170,102 @@ Each runner:
   <img alt="result" src="https://github.com/user-attachments/assets/f12908db-7383-4404-9525-13751e2158fc" width="700">
 </p>
 
+## 🧾 Convergence Metrics (Best-So-Far Fitness)
+
+The following table summarizes convergence behavior using the stored `global_fitness` histories:
+
+- **MaxBestFitness:** maximum best-so-far fitness reached during the run  
+- **IterAtMax:** first iteration where the maximum best-so-far fitness is reached  
+- **IterToRef:** first iteration where the method reaches the *reference optimum region* (exhaustive baseline, within tolerance)  
+- **ExecTime_s:** total execution time for the run  
+- **Score:** time-weighted score (higher is better), combining best fitness and runtime penalty
+
+> **Note:** Metaheuristics were executed with a limited iteration budget, so values represent the *best solution found within that budget*.
+
+| Technique | MaxBestFitness | IterAtMax | IterToRef | ExecTime (s) | Score |
+|----------|----------------:|----------:|----------:|-------------:|------:|
+| GA       | 0.22916         | 7         | 7         | 33           | 0.17230 |
+| Firefly  | 0.25134         | 79        | 7         | 108          | 0.12084 |
+| PSO      | 0.22921         | 17        | 10        | 107          | 0.11073 |
+| ABC      | 0.22921         | 82        | 82        | 363          | 0.04950 |
+
+### Key Observations
+- **GA** reaches the reference region fastest (**IterToRef = 7**) and has the best time-weighted score due to the shortest runtime.
+- **PSO** reaches the reference region within the budget (**IterToRef = 10**) with stable convergence, but with higher runtime than GA.
+- **ABC** reaches the reference region, but much later (**IterToRef = 82**) and with the highest runtime, resulting in the lowest score.
+- **Firefly** achieves the highest maximum best-so-far fitness, but does so late (**IterAtMax = 79**). This indicates convergence toward a different optimum region under the current objective/constraints and algorithm settings.
+
+---
+
+## ✅ Advantages, Limitations, and Opportunities
+
+### Genetic Algorithm (GA)
+**Advantages**
+- Fast convergence to the reference region (low **IterToRef**)
+- Lowest execution time among tested metaheuristics
+
+**Limitations**
+- Performance is sensitive to selection/crossover/mutation settings
+- Can converge prematurely depending on diversity control
+
+**Opportunities**
+- Add elitism + adaptive mutation to improve robustness
+- Increase population diversity metrics (avoid premature convergence)
+
+---
+
+### Particle Swarm Optimization (PSO)
+**Advantages**
+- Stable convergence behavior and competitive fitness
+- Simple parameterization and good baseline metaheuristic for PI tuning
+
+**Limitations**
+- Runtime higher than GA in this implementation
+- Can stagnate without inertia/acceleration tuning
+
+**Opportunities**
+- Use adaptive inertia / acceleration schedules
+- Add velocity clamping or constriction factor to reduce stagnation
+
+---
+
+### Firefly Algorithm
+**Advantages**
+- Capable of exploring alternative optima (highest **MaxBestFitness** observed)
+- Strong exploration behavior under stochastic movement
+
+**Limitations**
+- Requires more iterations to stabilize (high **IterAtMax**)
+- Sensitive to tuning (α, β, γ) and scale of the search space
+
+**Opportunities**
+- Tune α decay across iterations (exploration → exploitation)
+- Normalize parameter scales and use bounded random steps
+
+---
+
+### Artificial Bee Colony (ABC)
+**Advantages**
+- Reaches the reference region under constraints (eventually)
+- Robust exploration through scout/employee behavior
+
+**Limitations**
+- High computational cost in this implementation (largest runtime)
+- Slow convergence under limited-iteration budgets (high **IterToRef**)
+
+**Opportunities**
+- Reduce redundant evaluations (cache fitness for repeated candidates)
+- Tune limits/scout rate and step generation to accelerate exploitation
+
+
+
+
+
+
+
+
+
+
 ## 📊 Comparative Summary
 
 The table below provides a qualitative comparison of the evaluated optimization techniques

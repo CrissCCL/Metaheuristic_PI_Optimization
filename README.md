@@ -201,7 +201,7 @@ Each runner:
 > where $$f^\*$$ is the best fitness obtained by exhaustive search and $$f$$ is the
 > best-so-far fitness achieved by the metaheuristic at a given iteration.
 > Lower values indicate closer proximity to the reference optimum.
-
+>
 > **Interpretation:**  
 > A gap equal to zero indicates convergence to the reference optimum, while nonzero
 > values reflect suboptimal or locally optimal solutions under the given iteration budget.

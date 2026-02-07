@@ -195,8 +195,6 @@ The following table summarizes convergence behavior using the stored `global_fit
 - **ABC** reaches the reference region, but much later (**IterToRef = 82**) and with the highest runtime, resulting in the lowest score.
 - **Firefly** achieves the highest maximum best-so-far fitness, but does so late (**IterAtMax = 79**). This indicates convergence toward a different optimum region under the current objective/constraints and algorithm settings.
 
----
-
 ## ✅ Advantages, Limitations, and Opportunities
 
 ### Genetic Algorithm (GA)
@@ -212,8 +210,6 @@ The following table summarizes convergence behavior using the stored `global_fit
 - Add elitism + adaptive mutation to improve robustness
 - Increase population diversity metrics (avoid premature convergence)
 
----
-
 ### Particle Swarm Optimization (PSO)
 **Advantages**
 - Stable convergence behavior and competitive fitness
@@ -226,8 +222,6 @@ The following table summarizes convergence behavior using the stored `global_fit
 **Opportunities**
 - Use adaptive inertia / acceleration schedules
 - Add velocity clamping or constriction factor to reduce stagnation
-
----
 
 ### Firefly Algorithm
 **Advantages**
@@ -242,8 +236,6 @@ The following table summarizes convergence behavior using the stored `global_fit
 - Tune α decay across iterations (exploration → exploitation)
 - Normalize parameter scales and use bounded random steps
 
----
-
 ### Artificial Bee Colony (ABC)
 **Advantages**
 - Reaches the reference region under constraints (eventually)
@@ -256,14 +248,6 @@ The following table summarizes convergence behavior using the stored `global_fit
 **Opportunities**
 - Reduce redundant evaluations (cache fitness for repeated candidates)
 - Tune limits/scout rate and step generation to accelerate exploitation
-
-
-
-
-
-
-
-
 
 
 ## 📊 Comparative Summary

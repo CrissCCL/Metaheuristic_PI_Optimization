@@ -159,31 +159,37 @@ Each runner:
 - stores convergence history as global_fitness in /results/*.mat
 
 ## 📈 Results & Analysis
-### Fitness Evolution Comparison
-> **Important note (Optimality vs. Best Fitness):**  
-> In this study, the **Exhaustive Search** is used as the **reference optimum** within the evaluated parameter grid/bounds.  
-> For the metaheuristic methods (PSO, GA, Firefly, ABC, Bat), the reported curves correspond to the **best-so-far fitness found during the search**,which **does not necessarily imply global optimality**.  
-> Convergence is therefore evaluated based on **proximity to the reference optimum** and **how efficiently each algorithm reaches that region of the search space**.
 
+### Fitness Evolution and Convergence Behavior
+
+> **Important note (Optimality vs. Best Fitness):**  
+> In this study, the **Exhaustive Search** is used as the **reference optimum** within the evaluated parameter grid and bounds.  
+> For the metaheuristic methods (PSO, GA, Firefly, ABC, Bat), the reported curves correspond to the **best-so-far fitness found during the search**, which **does not necessarily imply global optimality**.  
+>  
+> Convergence performance is therefore evaluated based on:
+> - **Proximity to the reference optimum**, and  
+> - **How efficiently each algorithm reaches that region of the search space**.
 
 <p align="center">
   <img alt="result" src="https://github.com/user-attachments/assets/f12908db-7383-4404-9525-13751e2158fc" width="700">
 </p>
 
+All metaheuristic algorithms were executed using a **fixed iteration budget of 100 iterations** under identical simulation conditions.  
+The exhaustive search result serves exclusively as a **benchmark reference**, not as a competitor in convergence speed.
+
+---
+
 ## 🧾 Convergence Metrics (Best-So-Far Fitness)
 
-The following table summarizes convergence behavior using the stored `global_fitness` histories:
+To provide a quantitative assessment of convergence behavior, the stored `global_fitness` histories were analyzed using the following metrics:
 
-- **MaxBestFitness:** maximum best-so-far fitness reached during the run  
-- **IterAtMax:** first iteration where the maximum best-so-far fitness is reached  
-- **IterToRef:** first iteration where the method reaches the *reference optimum region* (exhaustive baseline, within tolerance)  
-- **ExecTime_s:** total execution time for the run  
-- **Score:** time-weighted score (higher is better), combining best fitness and runtime penalty
+- **MaxBestFitness:** Maximum best-so-far fitness reached during the run  
+- **IterAtMax:** First iteration at which the maximum best-so-far fitness is achieved  
+- **IterToRef:** First iteration at which the algorithm reaches the *reference optimum region* (within tolerance)  
+- **ExecTime (s):** Total execution time for the run  
+- **Score:** Time-weighted performance index (higher is better), combining fitness quality and execution time penalty  
 
-> **Note:** All metaheuristic algorithms were executed with a **fixed iteration budget of 100 iterations**.
-> Reported values therefore represent the *best-so-far solution found within that budget*,
-> which may correspond to either a global or a local optimum.
-
+> **Note:** Since all metaheuristics were executed with a fixed iteration budget of **100 iterations**, the reported values represent the **best solution found within that budget**, which may correspond to either a global or a local optimum.
 
 | Technique | MaxBestFitness | IterAtMax | IterToRef | ExecTime (s) | Score |
 |----------|----------------:|----------:|----------:|-------------:|------:|
@@ -192,108 +198,40 @@ The following table summarizes convergence behavior using the stored `global_fit
 | PSO      | 0.22921         | 17        | 10        | 107          | 0.11073 |
 | ABC      | 0.22921         | 82        | 82        | 363          | 0.04950 |
 
-### Key Observations
-- **GA** reaches the reference region fastest (**IterToRef = 7**) and has the best time-weighted score due to the shortest runtime.
-- **PSO** reaches the reference region within the budget (**IterToRef = 10**) with stable convergence, but with higher runtime than GA.
-- **ABC** reaches the reference region, but much later (**IterToRef = 82**) and with the highest runtime, resulting in the lowest score.
-- **Firefly** achieves the highest maximum best-so-far fitness, but does so late (**IterAtMax = 79**). This indicates convergence toward a different optimum region under the current objective/constraints and algorithm settings.
+### Interpretation
 
-## ✅ Advantages, Limitations, and Opportunities
+- **GA** reaches the reference optimum region fastest (**IterToRef = 7**) and exhibits the best time-weighted score due to its low execution time.
+- **PSO** converges reliably toward the reference region (**IterToRef = 10**) with stable behavior, albeit at a higher computational cost than GA.
+- **ABC** eventually reaches the reference region but requires significantly more iterations and computation time.
+- **Firefly** achieves the highest maximum best-so-far fitness; however, this occurs late in the run (**IterAtMax = 79**), indicating convergence toward a **different feasible region** of the search space rather than superiority with respect to the reference optimum.
 
-### Genetic Algorithm (GA)
-**Advantages**
-- Fast convergence to the reference region (low **IterToRef**)
-- Lowest execution time among tested metaheuristics
-
-**Limitations**
-- Performance is sensitive to selection/crossover/mutation settings
-- Can converge prematurely depending on diversity control
-
-**Opportunities**
-- Add elitism + adaptive mutation to improve robustness
-- Increase population diversity metrics (avoid premature convergence)
-
-### Particle Swarm Optimization (PSO)
-**Advantages**
-- Stable convergence behavior and competitive fitness
-- Simple parameterization and good baseline metaheuristic for PI tuning
-
-**Limitations**
-- Runtime higher than GA in this implementation
-- Can stagnate without inertia/acceleration tuning
-
-**Opportunities**
-- Use adaptive inertia / acceleration schedules
-- Add velocity clamping or constriction factor to reduce stagnation
-
-### Firefly Algorithm
-**Advantages**
-- Capable of exploring alternative optima (highest **MaxBestFitness** observed)
-- Strong exploration behavior under stochastic movement
-
-**Limitations**
-- Requires more iterations to stabilize (high **IterAtMax**)
-- Sensitive to tuning (α, β, γ) and scale of the search space
-
-**Opportunities**
-- Tune α decay across iterations (exploration → exploitation)
-- Normalize parameter scales and use bounded random steps
-
-### Artificial Bee Colony (ABC)
-**Advantages**
-- Reaches the reference region under constraints (eventually)
-- Robust exploration through scout/employee behavior
-
-**Limitations**
-- High computational cost in this implementation (largest runtime)
-- Slow convergence under limited-iteration budgets (high **IterToRef**)
-
-**Opportunities**
-- Reduce redundant evaluations (cache fitness for repeated candidates)
-- Tune limits/scout rate and step generation to accelerate exploitation
+This highlights the **exploratory nature** of Firefly-type algorithms under the current objective function and constraints.
 
 
 ## 📊 Comparative Summary
 
-The table below provides a qualitative comparison of the evaluated optimization techniques
-based on **fitness level**, **computational cost**, and **convergence behavior**.
-The exhaustive search is used as a **reference solution** within the evaluated parameter grid.
-
-Metaheuristics were executed with a limited iteration budget ** iterations (100)**;
-therefore, the reported results correspond to the **best-so-far solution found within that budget**,
-which may represent either a global or a local optimum.
+The following qualitative comparison complements the quantitative metrics above, summarizing each algorithm’s behavior in terms of convergence quality, computational effort, and practical usability.
 
 | Algorithm              | Fitness Level        | Computation Time | Notes                                                        |
 |------------------------|----------------------|------------------|--------------------------------------------------------------|
-| Exhaustive Search      | Reference optimum    | Medium           | Guarantees optimality within the grid                        |
-| PSO                    | Near-reference       | Medium           | Stable convergence toward reference solution                 |
+| Exhaustive Search      | Reference optimum    | Medium           | Guarantees optimality within the evaluated grid              |
+| PSO                    | Near-reference       | Medium           | Stable convergence toward the reference solution             |
 | Genetic Algorithm (GA) | Reference-equivalent | Low              | Fast convergence in few generations                          |
-| Firefly Algorithm      | Higher fitness value | Medium           | Converges to a different (local) optimum                     |
+| Firefly Algorithm      | Higher fitness value | Medium           | Converges to a different (local) optimum region              |
 | ABC                    | Reference-equivalent | Very High        | Achieves reference solution with high computational cost     |
 
-> Fitness values are not directly comparable across different local optima when constraints
-> and objective scaling differ; convergence behavior and computational cost are therefore
-> equally relevant evaluation criteria.
-
+> Fitness values are not directly comparable across different local optima when constraints and objective scaling differ; therefore, **convergence behavior and computational cost are equally relevant evaluation criteria**.
 
 
 ## 📊 Comparative Performance Summary (Quantitative Results)
 
+The table below reports the final controller parameters and execution times obtained for each method.
 
-The table below summarizes the updated performance results obtained for each optimization technique.
-For the metaheuristic algorithms, **100 iterations** were used, as shown in the fitness evolution plots.
-This allows identifying **which method reaches the reference optimum region first**
-and how efficiently each algorithm converges under the same iteration budget.
-
-Metaheuristic optimization methods are employed to **accelerate the search for optimal controller parameters**
-by avoiding the exhaustive evaluation of all possible parameter combinations, as performed by exhaustive search.
-While exhaustive search guarantees finding the reference optimum within the evaluated grid,
-it can become **computationally expensive** for large search spaces.
-
-In contrast, metaheuristic methods provide a **computationally efficient alternative**,
-trading guaranteed optimality for faster convergence toward near-optimal or optimal solutions.
+All metaheuristic algorithms were executed with **100 iterations**, allowing a direct comparison of
+**how efficiently each method approaches the reference optimum region** under identical computational constraints.
 
 ### Computing Platform
+
 All simulations were executed on the following hardware:
 
 - **Processor:** AMD Ryzen 7 5800X (8-Core, 3.80 GHz)  
@@ -310,9 +248,8 @@ All simulations were executed on the following hardware:
 | Artificial Bee Colony     | 0.2291  | 0.60 | 15.20 | 363                |
 
 > **Note:**  
-> The exhaustive search result is used as a **reference optimum within the evaluated parameter grid**.
-> For metaheuristic methods, the reported fitness corresponds to the **best-so-far solution**
-> found within the limited number of iterations.
+> The exhaustive search result is used exclusively as a **reference optimum** within the evaluated parameter grid.  
+> For metaheuristic methods, the reported fitness corresponds to the **best-so-far solution found within the fixed iteration budget**.
 
 
 ## 🛠️ Tools & Environment

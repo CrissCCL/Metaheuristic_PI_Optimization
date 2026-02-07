@@ -217,18 +217,22 @@ To provide a quantitative assessment of convergence behavior, the stored `global
 
 - **MaxBestFitness:** Maximum best-so-far fitness reached during the run  
 - **IterAtMax:** First iteration at which the maximum best-so-far fitness is achieved  
-- **IterToRef:** First iteration at which the algorithm reaches the *reference optimum region* (within tolerance)  
+- **IterToRef:** First iteration at which the algorithm reaches the *reference optimum region* (within tolerance)
+- **TimeToRef:** Represents the estimated real execution time required to reach the reference optimum region, computed assuming a fixed iteration budget of 100 iterations.
 - **ExecTime (s):** Total execution time for the run  
 - **Score:** Time-weighted performance index (higher is better), combining fitness quality and execution time penalty  
 
 > **Note:** Since all metaheuristics were executed with a fixed iteration budget of **100 iterations**, the reported values represent the **best solution found within that budget**, which may correspond to either a global or a local optimum.
 
-| Technique | MaxBestFitness | IterAtMax | IterToRef | ExecTime (s) | Score |
-|----------|----------------:|----------:|----------:|-------------:|------:|
-| GA       | 0.22916         | 7         | 7         | 33           | 0.17230 |
-| Firefly  | 0.25134         | 79        | 7         | 108          | 0.12084 |
-| PSO      | 0.22921         | 17        | 10        | 107          | 0.11073 |
-| ABC      | 0.22921         | 82        | 82        | 363          | 0.04950 |
+| Technique | MaxBestFitness | IterAtMax | IterToRef | TimeToRef (s) | ExecTime (s) | Score |
+|----------|----------------:|----------:|----------:|--------------:|-------------:|------:|
+| GA       | 0.22916         | 7         | 7         | 2.31          | 33           | 0.17230 |
+| Firefly  | 0.25134         | 79        | 7         | 7.56          | 108          | 0.12084 |
+| PSO      | 0.22921         | 17        | 10        | 10.70         | 107          | 0.11073 |
+| ABC      | 0.22921         | 82        | 82        | 297.66        | 363          | 0.04950 |
+
+>Including the time-to-reference metric allows distinguishing between algorithms that converge in few iterations but require high computational effort per iteration,
+and those that reach the reference region earlier in real execution time.
 
 ### Interpretation
 

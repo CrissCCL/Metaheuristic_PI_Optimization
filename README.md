@@ -180,7 +180,10 @@ The following table summarizes convergence behavior using the stored `global_fit
 - **ExecTime_s:** total execution time for the run  
 - **Score:** time-weighted score (higher is better), combining best fitness and runtime penalty
 
-> **Note:** Metaheuristics were executed with a limited iteration budget, so values represent the *best solution found within that budget*.
+> **Note:** All metaheuristic algorithms were executed with a **fixed iteration budget of 100 iterations**.
+> Reported values therefore represent the *best-so-far solution found within that budget*,
+> which may correspond to either a global or a local optimum.
+
 
 | Technique | MaxBestFitness | IterAtMax | IterToRef | ExecTime (s) | Score |
 |----------|----------------:|----------:|----------:|-------------:|------:|
@@ -256,7 +259,7 @@ The table below provides a qualitative comparison of the evaluated optimization 
 based on **fitness level**, **computational cost**, and **convergence behavior**.
 The exhaustive search is used as a **reference solution** within the evaluated parameter grid.
 
-Metaheuristic algorithms were executed with a **limited number of iterations (10)**;
+Metaheuristics were executed with a limited iteration budget ** iterations (100)**;
 therefore, the reported results correspond to the **best-so-far solution found within that budget**,
 which may represent either a global or a local optimum.
 
@@ -278,8 +281,9 @@ which may represent either a global or a local optimum.
 
 
 The table below summarizes the updated performance results obtained for each optimization technique.
-For the metaheuristic algorithms, **10 iterations** were used, as shown in the fitness evolution plots,
-which allow identifying **which method reaches the global or local optimum first**.
+For the metaheuristic algorithms, **100 iterations** were used, as shown in the fitness evolution plots.
+This allows identifying **which method reaches the reference optimum region first**
+and how efficiently each algorithm converges under the same iteration budget.
 
 Metaheuristic optimization methods are employed to **accelerate the search for optimal controller parameters**
 by avoiding the exhaustive evaluation of all possible parameter combinations, as performed by exhaustive search.

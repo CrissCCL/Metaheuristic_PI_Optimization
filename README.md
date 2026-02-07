@@ -82,22 +82,33 @@ Derivative action is intentionally excluded due to process characteristics and a
 
 ### Objective Function
 
-The controller parameters are optimized by minimizing an **integral performance criterion** based on the control error:
+The PI controller tuning problem is formulated as a constrained optimization task
+using the **Integral of Squared Error (ISE)** as performance index:
 
-- **ISE** (Integral of Squared Error)  
-- **ITAE** (Integral of Time-weighted Absolute Error), for comparative analysis
+$$
+J = \int_0^{T} e^2(t)\,dt
+$$
 
-The optimization is performed over the closed-loop time response to a step reference.
+The ISE criterion is selected to penalize transient errors more strongly,
+making it suitable for evaluating closed-loop dynamic performance.
 
 ### Constraints
 
-The optimization is subject to realistic operational constraints:
+The optimization is subject to the following physical and operational constraints:
 
-- **Actuator saturation** (maximum pump voltage)
-- **Minimum rise time**, reflecting physical limitations of the plant
-- Feasible controller parameter bounds
+$$
+0 \leq u(t) \leq 5 \ \text{[V]}
+\qquad
+T_r \geq 10 \ \text{[s]}
+$$
 
-Only solutions satisfying all constraints are considered valid.
+where $$u(t)$$ is the control signal limited by the actuator voltage,
+and $$T_r$$ is the rise time of the closed-loop response.
+The minimum rise time reflects inherent limitations of the system architecture
+and actuator dynamics under maximum operating conditions.
+
+Candidate solutions violating these constraints are considered infeasible
+and assigned zero fitness during optimization.
 
 
 ## 🧠 Optimization Algorithms Evaluated

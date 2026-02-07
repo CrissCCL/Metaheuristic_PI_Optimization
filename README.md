@@ -246,7 +246,9 @@ This highlights the **exploratory nature** of Firefly-type algorithms under the 
 
 ## 📊 Comparative Summary
 
-The following qualitative comparison complements the quantitative metrics above, summarizing each algorithm’s behavior in terms of convergence quality, computational effort, and practical usability.
+The table below provides a **qualitative comparison** of the evaluated optimization techniques, based on fitness level, computational cost, and overall convergence behavior.
+
+This summary is intended as a **high-level interpretation** of the detailed convergence metrics reported in the previous section, including iteration count and time-to-reference performance.
 
 | Algorithm              | Fitness Level        | Computation Time | Notes                                                        |
 |------------------------|----------------------|------------------|--------------------------------------------------------------|
@@ -273,7 +275,8 @@ All simulations were executed on the following hardware:
 - **Processor:** AMD Ryzen 7 5800X (8-Core, 3.80 GHz)  
 - **Installed RAM:** 32.0 GB  
 
-### Performance Comparison
+### Final PI Parameters and Execution Time
+
 
 | Technique                  | Fitness | Kp   | Ti    | Execution Time (s) |
 |---------------------------|---------|------|-------|--------------------|
@@ -284,8 +287,8 @@ All simulations were executed on the following hardware:
 | Artificial Bee Colony     | 0.2291  | 0.60 | 15.20 | 363                |
 
 > **Note:**  
-> The exhaustive search result is used exclusively as a **reference optimum** within the evaluated parameter grid.  
-> For metaheuristic methods, the reported fitness corresponds to the **best-so-far solution found within the fixed iteration budget**.
+> This table reports the **final controller parameters and total execution time** for each method.  
+> Convergence speed and time-to-reference metrics are analyzed separately in the *Convergence Metrics* section.
 
 
 ## 🛠️ Tools & Environment

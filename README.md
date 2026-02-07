@@ -177,7 +177,6 @@ Each runner:
 All metaheuristic algorithms were executed using a **fixed iteration budget of 100 iterations** under identical simulation conditions.  
 The exhaustive search result serves exclusively as a **benchmark reference**, not as a competitor in convergence speed.
 
----
 
 ## 🧾 Convergence Metrics (Best-So-Far Fitness)
 
